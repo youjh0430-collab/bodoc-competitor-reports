@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경쟁사 리서치 리포트 — 2026년 14주차 (03.26~04.02)</title>
+    <style>
+        :root {
+            --primary: #1a56db;
+            --primary-light: #e8effc;
+            --danger: #dc2626;
+            --success: #16a34a;
+            --warning: #f59e0b;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+        .container { max-width: 960px; margin: 0 auto; }
+        header {
+            background: linear-gradient(135deg, var(--primary), #3b82f6);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 32px;
+        }
+        header h1 { font-size: 28px; margin-bottom: 8px; }
+        header .meta { opacity: 0.85; font-size: 14px; }
+        header .meta span { margin-right: 16px; }
+
+        .executive-summary {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 24px 28px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 32px;
+        }
+        .executive-summary h2 { color: var(--primary); font-size: 18px; margin-bottom: 12px; }
+        .executive-summary ul { padding-left: 20px; }
+        .executive-summary li { margin-bottom: 8px; font-size: 15px; }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .section h2 {
+            font-size: 20px;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gray-100);
+        }
+        .section h3.sub-section-title {
+            font-size: 17px;
+            color: var(--gray-600);
+            margin-top: 28px;
+            margin-bottom: 16px;
+            padding-top: 16px;
+            border-top: 1px dashed var(--gray-200);
+        }
+
+        .competitor-card {
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        .competitor-card h3 {
+            font-size: 17px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .competitor-card .badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 99px;
+            font-weight: 600;
+        }
+        .badge-new { background: #dcfce7; color: var(--success); }
+        .badge-alert { background: #fef2f2; color: var(--danger); }
+        .badge-info { background: #e0f2fe; color: #0284c7; }
+        .badge-extra { background: #f3e8ff; color: #7c3aed; }
+
+        .item-grid {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 8px 16px;
+            font-size: 14px;
+        }
+        .item-label {
+            font-weight: 600;
+            color: var(--gray-600);
+        }
+        .item-value { color: var(--gray-800); }
+
+        .source-link {
+            font-size: 12px;
+            color: var(--primary);
+            text-decoration: none;
+            background: var(--primary-light);
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-left: 4px;
+            white-space: nowrap;
+        }
+        .source-link:hover { text-decoration: underline; }
+
+        .trend-list { list-style: none; padding: 0; }
+        .trend-list li {
+            padding: 12px 16px;
+            border-left: 3px solid var(--gray-200);
+            margin-bottom: 10px;
+            background: var(--gray-50);
+            border-radius: 0 8px 8px 0;
+        }
+        .trend-list li strong { display: block; margin-bottom: 4px; }
+
+        .action-items { list-style: none; padding: 0; }
+        .action-items li {
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .action-high { background: #fef2f2; border-left: 3px solid var(--danger); }
+        .action-mid { background: #fffbeb; border-left: 3px solid var(--warning); }
+        .action-low { background: #f0fdf4; border-left: 3px solid var(--success); }
+        .action-items .priority {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-right: 8px;
+        }
+
+        .needs-verification {
+            color: var(--warning);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .insurer-card {
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            background: var(--gray-50);
+        }
+        .insurer-card h4 {
+            font-size: 15px;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+        .insurer-card p {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 13px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-200);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h1>경쟁사 리서치 리포트</h1>
+        <div class="meta">
+            <span>2026년 14주차 (03.26 ~ 04.02)</span>
+            <span>|</span>
+            <span>보닥 (아이지넷) — 인슈어테크 / 마이데이터</span>
+        </div>
+    </header>
+
+    <!-- ============ 핵심 요약 ============ -->
+    <div class="executive-summary">
+        <h2>핵심 요약 (Executive Summary)</h2>
+        <ul>
+            <li><strong>뱅크샐러드</strong>가 메가존클라우드와 MOU 체결, '금융 AI 에이전트' 본격 고도화 — 마이데이터 기반 대출·카드·보험 전 영역으로 AI 추천 확대</li>
+            <li><strong>카카오페이손해보험</strong>이 펫보험 시장에 파격 조건(연간 의료비 4,000만원)으로 진출, 여행보험 귀국편 보장 확대</li>
+            <li><strong>토스인슈어런스</strong> 설계사 2,900명 돌파 · 대표 연임 확정 — 정착지원금 없이 정착률 90% 유지하며 초대형 GA 진입</li>
+            <li><strong>GA 수수료 규제</strong> 1,200% 룰 3월 1일 전면 시행 — 수수료 분급제 도입으로 GA 업계 구조 재편 가속</li>
+            <li><strong>5세대 실손보험</strong> 4월 출시 임박 — 4세대 보험료 20%대 인상, 비급여 구조 전면 개편</li>
+        </ul>
+    </div>
+
+    <!-- ============ 경쟁사별 동향 ============ -->
+    <div class="section">
+        <h2>경쟁사별 동향</h2>
+
+        <!-- 시그널플래너 -->
+        <div class="competitor-card">
+            <h3>시그널플래너 <span class="badge badge-new">보험비교</span></h3>
+            <div class="item-grid">
+                <span class="item-label">신규 기능/서비스</span>
+                <span class="item-value">AI 기반 보험 비교 엔진 고도화 — 동일 혜택 최저가 순서 자동 정렬. 자동차보험 최저가 비교 서비스 마케팅 강화 <a class="source-link" href="https://www.venturesquare.net/825678" target="_blank">벤처스퀘어</a></span>
+
+                <span class="item-label">제휴/파트너십</span>
+                <span class="item-value">—</span>
+
+                <span class="item-label">마케팅/프로모션</span>
+                <span class="item-value">자동차보험 비교 서비스 중심 퍼포먼스 마케팅 집행 중</span>
+
+                <span class="item-label">투자/M&A</span>
+                <span class="item-value">—</span>
+
+                <span class="item-label">채용 동향</span>
+                <span class="item-value">—</span>
+            </div>
+        </div>
+
+        <!-- 보맵 -->
+        <div class="competitor-card">
+            <h3>보맵 <span class="badge badge-new">보험비교</span></h3>
+            <div class="item-grid">
+                <span class="item-label">신규 기능/서비스</span>
+                <span class="item-value">보맵 3.0 업데이트 — 해외여행자보험·액티비티보험·펫보험·주택화재보험·자동차보험 간편 가입 기능 추가. <strong>가족보험공유 기능</strong> 신규 도입 (가족 구성원 동의 시 한 명이 전체 보험 통합 관리 가능) <a class="source-link" href="https://signalm.sedaily.com/NewsView/1VDW6TXWZX/GD01" target="_blank">시그널</a></span>
+
+                <span class="item-label">제휴/파트너십</span>
+                <span class="item-value">—</span>
+
+                <span class="item-label">마케팅/프로모션</span>
+                <span class="item-value">"보험, 이제 앱으로 간편하게 가입" 캠페인</span>
+
+                <span class="item-label">투자/M&A</span>
+                <span class="item-value">—</span>
+
+                <span class="item-label">채용 동향</span>
+                <span class="item-value">소규모 조직 유지 (잡플래닛 기준 리뷰 40건, 평점 2.7) <span class="needs-verification">⚠ needs verification</span></span>
+            </div>
+        </div>
+
+        <!-- 굿리치 -->
+        <div class="competitor-card">
+            <h3>굿리치 <span class="badge badge-new">보험비교</span></h3>
+            <div class="item-grid">
+                <span class="item-label">신규 기능/서비스</span>
+                <span class="item-value">굿리치앱(보험 통합관리) · 굿리치몰(보험 포털) · 굿리치라운지(오프라인 상담) 3채널 운영 체제 유지. 디지털 혁신으로 헤럴드보험대상 GA대상 수상 <a class="source-link" href="https://biz.heraldcorp.com/article/10607313" target="_blank">헤럴드경제</a></span>
+
+                <span class="item-label">제휴/파트너십</span>
+                <span class="item-value">JC파트너스(PE) 주도 경영 체질 개선(PMI) 진행 중 <a class="source-link" href="https://www.thebell.co.kr/free/content/ArticleView.asp?key=202509011056145560103256" target="_blank">더벨</a></span>
+
+                <span class="item-label">마케팅/프로모션</span>
+                <span class="item-value">무경력 설계사 리크루팅 차별화 — PMI 기반 교육 프로그램으로 생산성 제고 <a class="source-link" href="https://www.fntimes.com/html/view.php?ud=202511080621499355dd55077bc2_18" target="_blank">한국금융신문</a></span>
+
+                <span class="item-label">투자/M&A</span>
+                <span class="item-value"><strong>사상 최대 실적</strong> — 매출 5,489억, 영업이익 360억 달성. 손보 인당 수수료 월 664만원(GA 평균 303만원 대비 1위), 인당 신계약건수 7.3건(GA 평균 2.4건) <a class="source-link" href="https://www.insjournal.co.kr/news/articleView.html?idxno=29415" target="_blank">보험저널</a> <a class="source-link" href="https://gaworld.kr/gatimes-GA/?bmode=view&idx=162345325" target="_blank">GA TIMES</a></span>
+
+                <span class="item-label">채용 동향</span>
+                <span class="item-value">재적 설계사 5,725명(GA 72개사 중 11위). 설계사 장기유지율 상위 10개사 평균 상회 <a class="source-link" href="https://biz.heraldcorp.com/article/10646177" target="_blank">헤럴드경제</a></span>
+            </div>
+        </div>
+
+        <!-- 뱅크샐러드 -->
+        <div class="competitor-card">
+            <h3>뱅크샐러드 <span class="badge badge-info">마이데이터</span></h3>
+            <div class="item-grid">
+                <span class="item-label">신규 기능/서비스</span>
+                <span class="item-value">'금융 AI 에이전트' 비전 본격화 — 대출(금리인하요구권 자동화), 카드(피킹률 자동 계산), PFM(가계부 2.0) 등 AI 기반 서비스 라인업 확대. 'My AI Agent'로 최적 시점에 금융 솔루션 자동 제안·실행 <a class="source-link" href="https://www.fntimes.com/html/view.php?ud=2026032411595636146a663fbf34_18" target="_blank">한국금융신문</a></span>
+
+                <span class="item-label">제휴/파트너십</span>
+                <span class="item-value"><strong>메가존클라우드와 AI 에이전트 강화 MOU 체결</strong> — 차세대 AI 에이전트 서비스 공동 구축 <a class="source-link" href="https://www.edaily.co.kr/News/Read?newsId=03621126645321984&mediaCodeNo=257" target="_blank">이데일리</a> <a class="source-link" href="https://www.etoday.co.kr/news/view/2548718" target="_blank">이투데이</a></span>
+
+                <span class="item-label">마케팅/프로모션</span>
+                <span class="item-value">'AI 네이티브 컴퍼니' 브랜딩 전면 전환</span>
+
+                <span class="item-label">투자/M&A</span>
+                <span class="item-value">2025년 매출 260억(전년비 +77%), 순손실 6억으로 89% 축소 — 흑자 전환 임박 <a class="source-link" href="https://sports.khan.co.kr/article/202604012218003/" target="_blank">스포츠경향</a></span>
+
+                <span class="item-label">채용 동향</span>
+                <span class="item-value">AI/ML 엔지니어, 데이터 사이언스 직군 중심 채용 지속</span>
+            </div>
+        </div>
+
+        <!-- 토스 인슈어런스 -->
+        <div class="competitor-card">
+            <h3>토스 인슈어런스 <span class="badge badge-alert">플랫폼</span></h3>
+            <div class="item-grid">
+                <span class="item-label">신규 기능/서비스</span>
+                <span class="item-value">토스 앱 내 보험 상담 → 카카오톡 연계 설계사 매칭 UX 고도화. "쉽게, 빠르게, 빈틈없게" 보험 설계 방식 차별화 <a class="source-link" href="https://www.seoul.co.kr/news/economy/finance/2026/02/04/20260204032002" target="_blank">서울신문</a></span>
+
+                <span class="item-label">제휴/파트너십</span>
+                <span class="item-value">비바리퍼블리카 계열사로서 토스 생태계 내 보험 수직 통합 지속</span>
+
+                <span class="item-label">마케팅/프로모션</span>
+                <span class="item-value"><strong>정착지원금 없는 GA 모델</strong> — 경쟁 지양 문화로 설계사 정착률 90% 유지 <a class="source-link" href="https://www.bloter.net/news/articleView.html?idxno=629615" target="_blank">블로터</a></span>
+
+                <span class="item-label">투자/M&A</span>
+                <span class="item-value">조병익 대표 연임 확정 <a class="source-link" href="https://www.dt.co.kr/article/12054545" target="_blank">디지털타임스</a>. 설계사 2,900명 돌파(2022년 2명→4년 만에 초대형 GA). 5,000명 목표 지속 추진 <a class="source-link" href="https://blog.toss.im/article/TOSS-INSU" target="_blank">토스피드</a></span>
+
+                <span class="item-label">채용 동향</span>
+                <span class="item-value"><strong>23건 채용 공고 진행 중</strong>(2026년 기준) — 보험설계사 대규모 채용 지속 <a class="source-link" href="https://www.jobkorea.co.kr/company/42846397/recruit" target="_blank">잡코리아</a></span>
+            </div>
+        </div>
+
+        <!-- 네이버페이 -->
+        <div class="competitor-card">
+            <h3>네이버페이 <span class="badge badge-alert">플랫폼</span></h3>
+            <div class="item-grid">
+                <span class="item-label">신규 기능/서비스</span>
+                <span class="item-value"><strong>자동차보험 비교·추천 2.0 도입</strong> — 보험개발원 연동으로 정확도 향상. 만기일·차종 정보 자동 입력, 마일리지·운전점수 등 9가지 할인 특약 적용. 10개 손보사 비교 제공 <a class="source-link" href="https://www.thereport.co.kr/news/articleView.html?idxno=60820" target="_blank">더리포트</a> <a class="source-link" href="https://zdnet.co.kr/view/?no=20250320223305" target="_blank">ZDNet</a></span>
+
+                <span class="item-label">제휴/파트너십</span>
+                <span class="item-value">롯데손보·메리츠화재·삼성화재·캐롯손보·하나손보·현대해상·흥국화재·AXA·DB손보·KB손보 총 10개사 제휴</span>
+
+                <span class="item-label">마케팅/프로모션</span>
+                <span class="item-value">자동차보험 조회 이벤트 지속 운영. 누적 이용건수 350만건 돌파 <a class="source-link" href="https://www.digitaltoday.co.kr/news/articleView.html?idxno=584178" target="_blank">디지털투데이</a></span>
+
+                <span class="item-label">투자/M&A</span>
+                <span class="item-value">—</span>
+
+                <span class="item-label">채용 동향</span>
+                <span class="item-value">—</span>
+            </div>
+        </div>
+
+        <!-- 카카오페이 -->
+        <div class="competitor-card">
+            <h3>카카오페이 <span class="badge badge-alert">플랫폼</span></h3>
+            <div class="item-grid">
+                <span class="item-label">신규 기능/서비스</span>
+                <span class="item-value"><strong>카카오페이손해보험, 펫보험 시장 진출</strong> — 당일 의료비 최대 500만원, 연간 의료비 4,000만원(경쟁사 2~4배). 수술당일형·수술입원형 월 1만원 이하 가입 가능 <a class="source-link" href="https://www.mt.co.kr/finance/2026/03/25/2026032416413940755" target="_blank">머니투데이</a></span>
+
+                <span class="item-label">제휴/파트너십</span>
+                <span class="item-value">카카오 생태계 내 보험 수직 통합 — 카카오페이손해보험 직접 운영</span>
+
+                <span class="item-label">마케팅/프로모션</span>
+                <span class="item-value">지수형 여행보험 보장 범위 확대 — 해외 출발 귀국편까지 항공기 지연 보장 적용, 영수증 없이 1분 내 보험금 즉시 지급 <a class="source-link" href="https://dazabi.com/insurance_magazine/article.php?id=12267" target="_blank">다자비</a></span>
+
+                <span class="item-label">투자/M&A</span>
+                <span class="item-value">카카오페이 신원근 대표 연임 확정, 첫 흑자 달성 발판으로 '넥스트 파이낸스' 추진 <a class="source-link" href="https://www.econovill.com/news/articleView.html?idxno=734410" target="_blank">이코노믹리뷰</a></span>
+
+                <span class="item-label">채용 동향</span>
+                <span class="item-value">—</span>
+            </div>
+        </div>
+
+        <!-- ===== 이번 주 추가 주목 기업 ===== -->
+        <h3 class="sub-section-title">이번 주 추가 주목 기업</h3>
+
+        <!-- 교보라이프플래닛 -->
+        <div class="competitor-card">
+            <h3>교보라이프플래닛 <span class="badge badge-extra">디지털보험사</span></h3>
+            <div class="item-grid">
+                <span class="item-label">주요 이슈</span>
+                <span class="item-value"><strong>13년째 적자 지속</strong> — 디지털보험사 한계 극복 과제 부각 <a class="source-link" href="https://www.asiatoday.co.kr/kn/view.php?key=20260330010009224" target="_blank">아시아투데이</a>. 생성형 AI 기반 채팅 상담 플랫폼이 금융위 혁신금융서비스 지정 <a class="source-link" href="https://www.naeponews.co.kr/news/articleView.html?idxno=42939" target="_blank">내포뉴스</a>. 보장성보험 중심 포트폴리오 전환 + AI 옴니채널 세일즈 플랫폼 구축 추진</span>
+
+                <span class="item-label">시사점</span>
+                <span class="item-value">국내 유일 디지털 전업 생보사의 수익화 난항 — AI 전환으로 돌파구 모색 중. 보닥과 유사한 디지털 보험 포지션에서의 수익 모델 한계 참고</span>
+            </div>
+        </div>
+
+        <!-- DB손해보험 -->
+        <div class="competitor-card">
+            <h3>DB손해보험 <span class="badge badge-extra">원수사 AI</span></h3>
+            <div class="item-grid">
+                <span class="item-label">주요 이슈</span>
+                <span class="item-value">AI 에이전트 도입해 <strong>보험금 지급 과정 자동화</strong> 추진. 자동차보험 브랜드평판 3월 기준 1위 기록 <a class="source-link" href="https://www.businesskorea.co.kr/news/articleView.html?idxno=265221" target="_blank">BusinessKorea</a>. 인수 기준 강화 + 재보험 구조 고도화로 지속가능 수익 기반 구축 방침 <a class="source-link" href="https://dazabi.com/insurance_magazine/article.php?id=11565" target="_blank">다자비</a></span>
+
+                <span class="item-label">시사점</span>
+                <span class="item-value">대형 원수사가 직접 AI 에이전트를 도입하는 트렌드 — 중개 플랫폼의 차별적 가치 제공 필요성 증가</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ 시장 트렌드 & 규제 ============ -->
+    <div class="section">
+        <h2>시장 트렌드 & 규제 동향</h2>
+        <ul class="trend-list">
+            <li>
+                <strong>GA 수수료 규제 본격 시행 (2026.03.01~)</strong>
+                '1,200% 룰' GA 소속 설계사 단위 전면 적용. 보장성보험 첫해 수수료 총액을 월보험료 12배 이내로 제한. 수수료 분급제 도입으로 초년도 수수료 집중 지급 관행 억제. 3년 내 해지 시 초과 수수료 환수 조치 <a class="source-link" href="https://www.seoultribune.kr/post/1200-%EB%A3%B0%EA%B3%BC-%EC%88%98%EC%88%98%EB%A3%8C-%EB%B6%84%EA%B8%89%EC%A0%9C-ga-%EC%8B%9C%EC%9E%A5%EC%9D%84-%EB%B0%94%EA%BE%B8%EB%8A%94-%EC%A1%B0%EC%9A%A9%ED%95%9C-%ED%98%81%EB%AA%85" target="_blank">서울트리뷴</a> <a class="source-link" href="https://dazabi.com/insurance_magazine/article.php?id=10552" target="_blank">다자비</a>
+            </li>
+            <li>
+                <strong>GA 근로자 추정제 도입 추진</strong>
+                보험설계사의 고용 형태 기준 강화 — 기존 자유계약 기반 체계의 근본적 재편 예고. 설계사 감소 및 GA 체질 변화 불가피 <a class="source-link" href="https://dazabi.com/insurance_magazine/article.php?id=11092" target="_blank">다자비</a> <span class="needs-verification">⚠ needs verification — 시행 시기 미확정</span>
+            </li>
+            <li>
+                <strong>마이데이터 2.0 본격 운영</strong>
+                2025년 5월 전 보험사 마이데이터 의무화 완료. 자동차보험·단체보험까지 통합 대상 확대. 휴면예금·보험금 정보 추가 제공 <a class="source-link" href="https://dazabi.com/insurance_magazine/article.php?id=8571" target="_blank">다자비</a>
+            </li>
+            <li>
+                <strong>글로벌 인슈어테크 투자 회복</strong>
+                2025년 인슈어테크 투자금 50.8억 달러(전년비 +19.5%), 2021년 이후 첫 상승. 수익성 실현 여부가 투자 핵심 기준으로 전환 <a class="source-link" href="https://dazabi.com/insurance_magazine/article.php?id=11566" target="_blank">다자비</a>
+            </li>
+            <li>
+                <strong>AI 기술의 보험 핵심 영역 침투</strong>
+                생성형 AI가 언더라이팅·클레임 처리·사기 탐지·가격 산정 등에 실질적 성과. 임베디드 보험(Embedded Insurance)이 디지털 보험 생태계 핵심 성장 동력으로 부상 <a class="source-link" href="https://dazabi.com/insurance_magazine/article.php?id=11085" target="_blank">다자비</a> <a class="source-link" href="https://sobi.assetsquarestory.com/2026/01/2026_47.html" target="_blank">자산스퀘어</a>
+            </li>
+            <li>
+                <strong>사이버보험 시장 확대</strong>
+                삼성화재·한화손보·현대해상·KB손보 등 보안 기업과 결합한 '능동형 보험' 모델 출시. 보안 수준 진단·사고 예방 기능 포함
+            </li>
+        </ul>
+    </div>
+
+    <!-- ============ 보험 원수사 주요 이슈 ============ -->
+    <div class="section">
+        <h2>보험 원수사 주요 이슈</h2>
+
+        <div class="insurer-card">
+            <h4>5세대 실손보험 4월 출시 임박</h4>
+            <p>5세대 실손보험이 2026년 4월 전후 출시 예정. 4세대 실손보험료는 평균 20%대 인상, 전체 실손보험 평균 7.8% 인상. 3·4세대 비급여 진료 이용 비중 급증으로 위험손해율 138~148%까지 상승. <a class="source-link" href="https://www.insjournal.co.kr/news/articleView.html?idxno=29488" target="_blank">보험저널</a> <a class="source-link" href="https://www.hankookilbo.com/News/Read/A2025122317420002561" target="_blank">한국일보</a> <a class="source-link" href="https://www.sentv.co.kr/article/view/sentv202603270102" target="_blank">서울경제TV</a></p>
+        </div>
+
+        <div class="insurer-card">
+            <h4>손보 빅3 실적 — 본업 부진, 투자이익으로 상쇄</h4>
+            <p>2025년 주요 5개 손보사 합산 순이익 6조5,755억(전년비 -11%). 삼성화재 투자이익 +43.5%, DB손보 +44.9%로 본업 부진 방어. 현대해상은 채권 비중 58%까지 확대 계획으로 안정성 확보 추진 <a class="source-link" href="https://dazabi.com/insurance_magazine/article.php?id=8653" target="_blank">다자비</a></p>
+        </div>
+
+        <div class="insurer-card">
+            <h4>삼성화재 — 글로벌 확장 + 사이버보험</h4>
+            <p>북미·아시아 '투트랙' 해외 공략 강화. 사이버보험 등 신시장 진출 및 AI 기반 보상 자동화로 효율 제고 계획 <a class="source-link" href="https://www.fetv.co.kr/news/article.html?no=209642" target="_blank">FETV</a></p>
+        </div>
+
+        <div class="insurer-card">
+            <h4>저출산 극복 지원 3종 세트 (2026년 4월~ 시행 예정)</h4>
+            <p>출산·육아휴직 시 어린이보험 보험료 최소 1년 이상 할인. 간단보험대리점 판매 범위가 손해보험에서 생명·제3보험(상해·질병)까지 확대 <a class="source-link" href="https://www.ebn.co.kr/news/articleView.html?idxno=1693142" target="_blank">EBN</a></p>
+        </div>
+
+        <div class="insurer-card">
+            <h4>전기차 충전시설 사고배상책임보험 의무화 (2026.01.01~)</h4>
+            <p>전기차 보급 확대에 맞춰 충전시설 관리자의 사고배상책임보험 가입 의무화 시행 중 <a class="source-link" href="https://beed.kr/posts/2026nyeon-boheomjedo-byeonhwa-congjeongri-jongsin-silson-jadongca-4daeboheom" target="_blank">beed</a></p>
+        </div>
+
+        <div class="insurer-card">
+            <h4>자동차보험 브랜드평판 (2026년 3월)</h4>
+            <p>1위 DB손해보험, 2위 KB손해보험, 3위 현대해상 순 <a class="source-link" href="https://www.businesskorea.co.kr/news/articleView.html?idxno=265221" target="_blank">BusinessKorea</a></p>
+        </div>
+
+        <div class="insurer-card">
+            <h4>제19회 아시아 보험포럼 (AIF 2026) — 4월 10일 서울 개최</h4>
+            <p>아시아 주요국 보험 전문가 참석, 보험판매채널 제도적 방향성·소비자 보호 강화 방안 논의 예정 <a class="source-link" href="https://dazabi.com/insurance_magazine/article.php?id=11287" target="_blank">다자비</a></p>
+        </div>
+    </div>
+
+    <!-- ============ 시사점 & 액션 아이템 ============ -->
+    <div class="section">
+        <h2>시사점 & 액션 아이템</h2>
+        <ul class="action-items">
+            <li class="action-high">
+                <span class="priority" style="color:#dc2626;">긴급</span>
+                <strong>GA 수수료 규제 영향 분석</strong> — 1,200% 룰 및 분급제가 보닥의 보험 추천·비교 모델에 미치는 영향 점검. 파트너 GA/보험사의 수수료 구조 변화에 따른 수익 모델 파급 효과 분석 시급
+            </li>
+            <li class="action-high">
+                <span class="priority" style="color:#dc2626;">긴급</span>
+                <strong>뱅크샐러드 AI 에이전트 대응 전략</strong> — 마이데이터+AI로 보험 추천 확장 시 보닥 핵심 경쟁력(보험 비교·분석)과 직접 경합. 보험 전문 AI 차별점 확보 필요
+            </li>
+            <li class="action-high">
+                <span class="priority" style="color:#dc2626;">긴급</span>
+                <strong>5세대 실손보험 출시 대응</strong> — 4월 출시 임박, 보닥 내 실손보험 비교·전환 안내 콘텐츠 및 기능 준비 필요. 4세대 대비 변경점 가이드 선제 제공으로 유입 기회
+            </li>
+            <li class="action-mid">
+                <span class="priority" style="color:#f59e0b;">주의</span>
+                <strong>토스인슈어런스 급성장 모니터링</strong> — 4년 만에 설계사 2→2,900명 성장은 토스 플랫폼의 보험 지배력 확대를 의미. 토스 앱 내 보험 비교 기능 고도화 추적 필요
+            </li>
+            <li class="action-mid">
+                <span class="priority" style="color:#f59e0b;">주의</span>
+                <strong>카카오페이손보 펫보험 진출 영향</strong> — 파격 조건(연간 4,000만원)으로 펫보험 시장 판도 변화 예고. 보닥 펫보험 비교 서비스 검토 필요
+            </li>
+            <li class="action-mid">
+                <span class="priority" style="color:#f59e0b;">주의</span>
+                <strong>네이버페이 자동차보험 2.0 경쟁</strong> — 10개 보험사 비교 + 9가지 할인 특약 적용 + 350만건 이용. 자동차보험 비교 시장에서의 포지셔닝 재점검
+            </li>
+            <li class="action-low">
+                <span class="priority" style="color:#16a34a;">참고</span>
+                <strong>임베디드 보험 시장 검토</strong> — 디지털 보험 생태계 핵심 성장 동력. 보닥 플랫폼 내 상황 기반 보험 추천(여행·운동·부동산 등) 가능성 탐색
+            </li>
+            <li class="action-low">
+                <span class="priority" style="color:#16a34a;">참고</span>
+                <strong>마이데이터 2.0 활용 확대</strong> — 자동차보험·단체보험 데이터 추가에 따른 서비스 범위 확장 기회. AI 보장 분석 고도화에 활용 검토
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        Generated by Claude Code — 보닥(아이지넷) 경쟁사 리서치 자동화 | 2026.04.02<br>
+        <span style="font-size: 11px; color: #9ca3af;">⚠ needs verification 표기 항목은 공식 확인 전 참고 수준의 정보입니다.</span>
+    </footer>
+
+</div>
+</body>
+</html>
